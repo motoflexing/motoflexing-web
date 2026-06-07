@@ -3,24 +3,18 @@ import Lenis from "lenis";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
-  Bot,
-  BriefcaseBusiness,
-  ChevronRight,
   Code2,
-  Cpu,
   Menu,
-  Play,
   Radio,
-  ShieldCheck,
   Sparkles,
   X,
 } from "lucide-react";
 
 const navLinks = [
-  { label: "About", href: "#about" },
+  { label: "Projects", href: "#ecosystem" },
   { label: "Profile", href: "#profile" },
+  { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
-  { label: "My Works", href: "#works", active: true },
 ];
 
 const SOCIAL_LINKS = {
@@ -81,47 +75,125 @@ const socialLinks = [
   { icon: GitHubIcon, label: "GitHub", href: SOCIAL_LINKS.github },
 ];
 
-const heroTags = ["Products", "Startups", "Technology"];
+const heroTags = ["AI Automations", "SaaS", "Systems"];
 
 const works = [
   {
     type: "SaaS",
     title: "OfficeOS",
-    text: "Internal business software for teams, people, permissions, tasks, and operating rhythm.",
+    text: "Internal software for teams, tasks, and operations.",
     status: "Building",
   },
   {
     type: "Hiring",
     title: "ATS",
-    text: "Applicant tracking and resume intelligence for cleaner hiring decisions and faster shortlists.",
+    text: "Applicant tracking with resume intelligence.",
     status: "Planned",
   },
   {
     type: "Workspace",
     title: "Workspace",
-    text: "A future execution hub for notes, docs, tasks, planning, and focused product work.",
+    text: "A focused space for docs, tasks, and planning.",
     status: "Concept",
   },
   {
     type: "AI Tool",
     title: "Resume Screener",
-    text: "AI workflow for ranking resumes, extracting signals, and reducing manual review time.",
+    text: "AI-assisted resume ranking and signal extraction.",
     status: "Building",
   },
 ];
 
 const ecosystem = [
-  { icon: BriefcaseBusiness, title: "OfficeOS", text: "Business operations layer for internal teams." },
-  { icon: ShieldCheck, title: "ATS", text: "Hiring pipeline, resume intelligence, and candidate flow." },
-  { icon: Cpu, title: "Workspace", text: "Execution space for docs, tasks, notes, and planning." },
-  { icon: Bot, title: "Future SaaS", text: "AI utilities, creator tools, and internal software products." },
+  {
+    category: "SaaS",
+    title: "OfficeOS",
+    text: "Internal operations and employee management software.",
+    status: "Live",
+    href: "https://officeos.motoflexing.com",
+  },
+  {
+    category: "AI Automation",
+    title: "OMAI",
+    text: "AI workflows, automations, and productivity systems.",
+    status: "Live",
+    href: "https://omai.motoflexing.com",
+  },
+  {
+    category: "Website",
+    title: "Gym",
+    text: "Premium gym and fitness website experience.",
+    status: "Live",
+    href: "https://gym.motoflexing.com",
+  },
+  {
+    category: "Platform",
+    title: "Games",
+    text: "Gaming platform and future browser-based experiences.",
+    status: "Coming Soon",
+  },
 ];
 
-const profileStats = [
-  ["110", "videos published"],
-  ["311", "subscribers watching"],
-  ["6+", "product ideas in motion"],
-  ["4", "core ecosystem directions"],
+const projects = [
+  {
+    category: "SaaS",
+    title: "OfficeOS",
+    text: "Internal business operations platform.",
+    href: "https://officeos.motoflexing.com",
+    status: "Building",
+    featured: true,
+  },
+  {
+    category: "AI Automation",
+    title: "OMAI",
+    text: "AI automation and workflow platform.",
+    href: "https://omai.motoflexing.com",
+    status: "Building",
+  },
+  {
+    category: "Website",
+    title: "Gym",
+    text: "Premium fitness and gym website.",
+    href: "https://gym.motoflexing.com",
+    status: "Live",
+  },
+  {
+    category: "Future Products",
+    title: "Coming Soon",
+    text: "More AI automations, SaaS products, and internal systems.",
+    status: "Planned",
+  },
+];
+
+const socialProof = [
+  {
+    icon: LinkedInIcon,
+    number: "1000+",
+    title: "LinkedIn Network",
+    text: "Founder updates, product building, SaaS, and AI.",
+    href: SOCIAL_LINKS.linkedin,
+  },
+  {
+    icon: InstagramIcon,
+    number: "3000+",
+    title: "Instagram Audience",
+    text: "Behind the scenes, progress, and MotoFlexing updates.",
+    href: SOCIAL_LINKS.instagram,
+  },
+  {
+    icon: YouTubeIcon,
+    number: "311+",
+    title: "YouTube Subscribers",
+    text: "Build logs, software projects, and future launches.",
+    href: SOCIAL_LINKS.youtube,
+  },
+  {
+    icon: GitHubIcon,
+    number: "30+",
+    title: "GitHub Repositories",
+    text: "Code, experiments, SaaS products, and open-source work.",
+    href: SOCIAL_LINKS.github,
+  },
 ];
 
 function Container({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -146,7 +218,7 @@ function Navbar() {
         <Logo />
         <nav className="desktop-nav" aria-label="Primary navigation">
           {navLinks.map((link) => (
-            <a className={link.active ? "active" : ""} href={link.href} key={link.label}>
+            <a href={link.href} key={link.label}>
               {link.label}
             </a>
           ))}
@@ -200,14 +272,12 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <p className="kicker">Personal brand / Builder / Creator</p>
+          <p className="kicker">Founder brand / Product builder</p>
           <h1>
             <span>MOTO</span>
             <strong>FLEXING</strong>
           </h1>
-          <p className="hero-subtitle">
-            Building products, documenting the journey, and turning ideas into software.
-          </p>
+          <p className="hero-subtitle">Products, software, and focused execution.</p>
           <div className="tag-row">
             {heroTags.map((tag) => (
               <span key={tag}>{tag}</span>
@@ -215,10 +285,7 @@ function Hero() {
           </div>
           <div className="hero-actions">
             <a className="primary-cta" href="#works">
-              Visit site <ArrowRight size={18} />
-            </a>
-            <a className="ghost-cta" href="#works">
-              View work
+              Explore Work <ArrowRight size={18} />
             </a>
           </div>
           <div className="mobile-socials" aria-label="Social links">
@@ -232,14 +299,6 @@ function Hero() {
             })}
           </div>
         </motion.div>
-        <div className="floating-actions" aria-label="Quick actions">
-          <a href="#works" aria-label="Open works">
-            <ChevronRight size={20} />
-          </a>
-          <a href="#content" aria-label="Open content">
-            <Play size={18} fill="currentColor" />
-          </a>
-        </div>
       </Container>
       <div className="scroll-cue">Scroll</div>
     </section>
@@ -265,26 +324,35 @@ function ChapterHeader({ eyebrow, title, text }: { eyebrow: string; title: strin
 function ProfileChapter() {
   return (
     <section className="chapter profile-chapter" id="profile">
-      <Container className="profile-grid">
+      <Container>
         <ChapterHeader
           eyebrow="Profile"
-          title="Not a freelance agency. A personal build universe."
-          text="MotoFlexing is the public face of a builder developing products, documenting the climb, and turning sharp ideas into usable software."
+          title="Building in public."
+          text="Sharing the journey of building products, AI automations, SaaS applications, and the MotoFlexing ecosystem."
         />
-        <div className="stat-grid">
-          {profileStats.map(([value, label]) => (
-            <motion.div
-              className="stat-card"
-              key={label}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.42 }}
-            >
-              <strong>{value}</strong>
-              <span>{label}</span>
-            </motion.div>
-          ))}
+        <div className="social-proof-grid">
+          {socialProof.map((item) => {
+            const Icon = item.icon;
+            return (
+              <motion.a
+                className="social-proof-card"
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                key={item.title}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.42 }}
+              >
+                <Icon size={21} />
+                <strong>{item.number}</strong>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+                <span>Visit →</span>
+              </motion.a>
+            );
+          })}
         </div>
       </Container>
     </section>
@@ -296,21 +364,19 @@ function WorksChapter() {
     <section className="chapter works-chapter" id="works">
       <Container>
         <ChapterHeader
-          eyebrow="My Works"
-          title="Products with utility, atmosphere, and execution."
-          text="The portfolio is shaped around real product directions: internal business software, hiring systems, AI tools, and premium product websites."
+          eyebrow="Work"
+          title="Current product directions."
         />
         <div className="work-grid">
-          {works.map((work, index) => (
+          {works.map((work) => (
             <motion.article
               className="work-card"
               key={work.title}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.48, delay: index * 0.05 }}
+              transition={{ duration: 0.48 }}
             >
-              <div className="card-index">{String(index + 1).padStart(2, "0")}</div>
               <p>{work.type}</p>
               <h3>{work.title}</h3>
               <span>{work.text}</span>
@@ -328,26 +394,38 @@ function EcosystemChapter() {
     <section className="chapter ecosystem-chapter" id="ecosystem">
       <Container>
         <ChapterHeader
-          eyebrow="Ecosystem"
-          title="OfficeOS, ATS, Workspace, and the next products after that."
-          text="The long game is a product ecosystem connected by one brand: builder discipline, premium interfaces, useful software, and AI-powered workflows."
+          eyebrow="Live Products"
+          title="Built. Shipped. Online."
+          text="Products and platforms currently being built under MotoFlexing."
         />
         <div className="ecosystem-grid">
           {ecosystem.map((item, index) => {
-            const Icon = item.icon;
+            const cardContent = (
+              <>
+                <small>{item.category}</small>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+                <b>{item.status}</b>
+              </>
+            );
+
             return (
-              <motion.article
-                className="ecosystem-card"
+              <motion.div
+                className="ecosystem-card-frame"
                 key={item.title}
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.42, delay: index * 0.04 }}
               >
-                <Icon size={24} />
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </motion.article>
+                {item.href ? (
+                  <a className="ecosystem-card ecosystem-card-link" href={item.href} target="_blank" rel="noreferrer">
+                    {cardContent}
+                  </a>
+                ) : (
+                  <article className="ecosystem-card ecosystem-card-disabled">{cardContent}</article>
+                )}
+              </motion.div>
             );
           })}
         </div>
@@ -362,24 +440,24 @@ function AboutChapter() {
       <Container className="about-grid">
         <ChapterHeader
           eyebrow="About"
-          title="Built like a night ride: focused, fast, and cinematic."
-          text="MotoFlexing combines creator energy with product execution. The work is not about looking busy. It is about shipping real interfaces, workflows, and tools that people can understand quickly."
+          title="Product taste. Builder discipline."
+          text="A personal brand for software, content, and client-grade product work."
         />
         <div className="about-panels">
           <article>
             <Code2 size={24} />
             <h3>Developer</h3>
-            <p>Clean React builds, product logic, responsive interfaces, and deployable systems.</p>
+            <p>Clean interfaces and deployable systems.</p>
           </article>
           <article>
             <Radio size={24} />
             <h3>Creator</h3>
-            <p>Content, build logs, discipline, and a public story around the brand.</p>
+            <p>Build logs and product storytelling.</p>
           </article>
           <article>
             <Sparkles size={24} />
             <h3>Builder</h3>
-            <p>Ideas turned into SaaS apps, AI workflows, internal tools, and premium web products.</p>
+            <p>SaaS, AI tools, and premium web products.</p>
           </article>
         </div>
       </Container>
@@ -393,11 +471,8 @@ function ContentChapter() {
       <Container className="content-panel">
         <div>
           <p className="kicker">Content</p>
-          <h2>Building the brand in public.</h2>
-          <span>
-            MotoFlexing is also the story around the work: videos, experiments, product progress, and the discipline
-            behind the comeback.
-          </span>
+          <h2>Building in public.</h2>
+          <span>Product progress, experiments, and the work behind the brand.</span>
         </div>
         <a className="primary-cta" href="https://youtube.com/@moto.flexing" target="_blank" rel="noreferrer">
           Visit YouTube <ArrowRight size={18} />
@@ -413,8 +488,7 @@ function ContactChapter() {
       <Container className="contact-panel">
         <ChapterHeader
           eyebrow="Contact"
-          title="Ready to build something with edge?"
-          text="Reach out for product work, premium web apps, internal software, AI tooling, or collaborations around the MotoFlexing ecosystem."
+          title="Build with MotoFlexing."
         />
         <div className="contact-actions">
           <a className="primary-cta" href="mailto:hello@motoflexing.com">
@@ -433,6 +507,17 @@ function Footer() {
       <Container className="footer-inner">
         <Logo />
         <span>© 2026 MotoFlexing. Built in the dark, shipped for the real world.</span>
+      </Container>
+    </footer>
+  );
+}
+
+function BrandFooter() {
+  return (
+    <footer className="footer">
+      <Container className="footer-inner">
+        <Logo />
+        <span>{"\u00a9"} 2026 MotoFlexing. Built for focused product work.</span>
       </Container>
     </footer>
   );
@@ -458,14 +543,12 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <ProfileChapter />
-        <WorksChapter />
         <EcosystemChapter />
+        <ProfileChapter />
         <AboutChapter />
-        <ContentChapter />
         <ContactChapter />
       </main>
-      <Footer />
+      <BrandFooter />
     </>
   );
 }
