@@ -453,6 +453,205 @@ button {
   text-transform: uppercase;
 }
 
+/* ============================================
+   3D HERO SECTION
+   ============================================ */
+
+.hero-3d {
+  position: relative;
+  min-height: 100vh;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 17, 31, 0.06), transparent 50%),
+    linear-gradient(180deg, #020203 0%, #050506 44%, #08080a 100%);
+}
+
+.hero-3d::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(2, 2, 3, 0.9) 0%, rgba(2, 2, 3, 0.6) 50%, rgba(2, 2, 3, 0.3) 100%),
+    radial-gradient(ellipse at 50% 30%, rgba(255, 17, 31, 0.08), transparent 30rem);
+  pointer-events: none;
+}
+
+.hero-3d::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.8) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9));
+}
+
+.canvas-container {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+}
+
+.canvas-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.hero-overlay .container {
+  pointer-events: auto;
+}
+
+.hero-3d .hero-inner {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 112px 0 76px;
+}
+
+.hero-3d .hero-copy {
+  position: relative;
+  z-index: 3;
+  width: min(100%, 640px);
+  padding-left: clamp(0px, 4vw, 82px);
+}
+
+.hero-3d .kicker {
+  color: #9f111b;
+}
+
+.canvas-fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 17, 31, 0.06), transparent 50%),
+    linear-gradient(180deg, #020203 0%, #050506 44%, #08080a 100%);
+}
+
+.fallback-content {
+  text-align: center;
+  padding: 2rem;
+  max-width: 800px;
+}
+
+.fallback-content .kicker {
+  color: var(--red);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+}
+
+.fallback-content h1 {
+  margin: 0;
+  font-size: clamp(54px, 6.8vw, 104px);
+  line-height: 0.95;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.fallback-content h1 span,
+.fallback-content h1 strong {
+  display: block;
+  font-weight: 1000;
+  transform: scaleY(1.06);
+  transform-origin: left center;
+}
+
+.fallback-content h1 strong {
+  margin-top: 12px;
+}
+
+.fallback-content h1 span {
+  color: #e7e4df;
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.85),
+    0 0 12px rgba(255, 255, 255, 0.08);
+}
+
+.fallback-content h1 strong {
+  color: #d61f2c;
+  text-shadow:
+    0 1px 0 #3a0004,
+    0 0 10px rgba(164, 22, 26, 0.16);
+}
+
+.fallback-content h1 span,
+.fallback-content h1 strong {
+  background-image:
+    linear-gradient(115deg, transparent 0 12%, rgba(0, 0, 0, 0.28) 12.4% 13.1%, transparent 13.5% 32%, rgba(255, 255, 255, 0.12) 32.3% 33%, transparent 33.3%),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.22) 0 1px, transparent 1px 8px);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Ecosystem card inner for 3D aesthetic */
+.ecosystem-card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 26px;
+}
+
+.ecosystem-card-inner small {
+  color: var(--red);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ecosystem-card-inner h3 {
+  margin: 18px 0 0;
+  font-size: 30px;
+  line-height: 0.96;
+  text-transform: uppercase;
+}
+
+.ecosystem-card-inner p {
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.62;
+  flex: 1;
+}
+
+.ecosystem-card-inner b {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: auto;
+  padding: 8px 11px;
+  border: 1px solid var(--line-red);
+  border-radius: 999px;
+  color: var(--red);
+  background: rgba(255, 17, 31, 0.06);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .chapter {
   position: relative;
   padding: 104px 0;
@@ -965,7 +1164,8 @@ button {
     transform: translateY(-2px);
   }
 
-  .hero-copy {
+  .hero-copy,
+  .hero-3d .hero-copy {
     padding-left: 0;
   }
 
@@ -1015,12 +1215,14 @@ button {
   }
 
   .hero-inner,
+  .hero-3d .hero-inner,
   .content-panel,
   .contact-panel {
     grid-template-columns: 1fr;
   }
 
-  .hero-inner {
+  .hero-inner,
+  .hero-3d .hero-inner {
     display: flex;
     min-height: auto;
     flex-direction: column;
@@ -1045,6 +1247,22 @@ button {
     background:
       radial-gradient(circle at center, transparent 34%, rgba(0, 0, 0, 0.7) 100%),
       linear-gradient(180deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.92));
+  }
+
+  .hero-3d {
+    min-height: 100vh;
+  }
+
+  .hero-3d::before {
+    background:
+      linear-gradient(180deg, rgba(2, 2, 3, 0.95) 0%, rgba(2, 2, 3, 0.7) 50%, rgba(2, 2, 3, 0.4) 100%),
+      radial-gradient(ellipse at 50% 30%, rgba(255, 17, 31, 0.1), transparent 30rem);
+  }
+
+  .hero-3d::after {
+    background:
+      radial-gradient(ellipse at center, transparent 30%, rgba(0, 0, 0, 0.8) 100%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.95));
   }
 
   .chapter {
@@ -1087,7 +1305,8 @@ button {
     height: 56px;
   }
 
-  .hero-copy h1 {
+  .hero-copy h1,
+  .hero-3d .hero-copy h1 {
     font-size: clamp(46px, 14vw, 76px);
   }
 
@@ -1113,6 +1332,10 @@ button {
   }
 
   .hero {
+    background-position: 68% center;
+  }
+
+  .hero-3d {
     background-position: 68% center;
   }
 
